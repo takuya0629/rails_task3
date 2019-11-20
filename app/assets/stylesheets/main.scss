@@ -2,7 +2,8 @@ body {
   margin: 0 auto;
   text-align: center;
   background: image-url("instagram_image.jpg") no-repeat;
-  background-size: 100%;
+  background-size: cover;
+  list-style: none;
 }
 
 header {
@@ -36,4 +37,12 @@ table {
   font-size: 4rem;
   padding: 2rem;
   margin-top: 1rem;
+}
+
+.image_area {
+  display: inline-block;
+}
+
+tr {
+  height: 5rem;
 }

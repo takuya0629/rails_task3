@@ -26,7 +26,7 @@ group :development, :test do
   gem 'pry-rails'
   gem 'better_errors'
   gem 'binding_of_caller'
-  gem 'mini_magick'
+  gem 'faker'
 end
 
 group :development do
@@ -45,3 +45,5 @@ end
 gem 'tzinfo-data', platforms: [:mingw, :mswin, :x64_mingw, :jruby]
 
 gem 'carrierwave'
+gem 'bcrypt'
+gem 'mini_magick'

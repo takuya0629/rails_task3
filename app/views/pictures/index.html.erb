@@ -1,31 +1,32 @@
-<p id="notice"><%= notice %></p>
-
-<h1>Pictures</h1>
-
-<table>
-  <thead>
-    <tr>
-      <th>Title</th>
-      <th>Content</th>
-      <th>Image</th>
-      <th colspan="3"></th>
-    </tr>
-  </thead>
-
-  <tbody>
-    <% @pictures.each do |picture| %>
-      <tr>
-        <td><%= picture.title %></td>
-        <td><%= picture.content %></td>
-        <td><%= picture.image %></td>
-        <td><%= link_to 'Show', picture %></td>
-        <td><%= link_to 'Edit', edit_picture_path(picture) %></td>
-        <td><%= link_to 'Destroy', picture, method: :delete, data: { confirm: 'Are you sure?' } %></td>
-      </tr>
-    <% end %>
-  </tbody>
-</table>
-
+<h1>投稿一覧</h1>
 <br>
 
-<%= link_to 'New Picture', new_picture_path %>
+<tbody>
+  <% @pictures.each do |picture| %>
+  <br>
+    <h2 class="index_title">タイトル：<%= picture.title %></h2>
+    <br>
+    <div class=index_main>
+      <% if picture.image? %>
+        <%= image_tag picture.image.url, :size =>'410x300' %>
+        <% else %>
+        <%= image_tag "/Noimage_image.png", :size =>'410x300' %>
+      <% end %>
+      
+      <br>    
+      <h3>一言：<%= picture.content %></h3>
+      <br>
+      <h4>投稿者：<%= link_to picture.user.name, user_path(picture.user.id) %></h4>
+      <%= link_to '詳細を見る', picture %>
+      <% if current_user.id == picture.user_id %>
+        <%= link_to '編集する', edit_picture_path(picture) %>
+        <%= link_to '削除する', picture, method: :delete, data: { confirm: '本当に削除しますか?' } %>
+      <% end %>
+      <br>
+      <br>
+    </div>    
+  <% end %>
+</tbody>
+
+<br>
+<%= link_to '投稿する', new_picture_path, class: 'btn btn-info' %>

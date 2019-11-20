@@ -1,0 +1,19 @@
+<h3>以下の内容で送信します。</h3>
+
+<%= form_with(model: @picture, local: true, url: pictures_path) do |form| %>
+  <%= form.hidden_field :content %>
+  <%= form.hidden_field :title %>
+  <%= form.hidden_field :image_cache %>
+
+  <p>Title：<%= @picture.content %></p>
+  <p>Content：<%= @picture.content %></p>
+
+  <% if @picture.image? %>
+    <%= image_tag @picture.image.url, size: '410x300' %>
+  <% end %>
+
+  <br>
+  <br>
+  <%= form.submit "作成する", class: 'btn btn-success'%>
+  <%= form.submit "戻る", name: 'back', class: 'btn btn-warning' %>
+<% end %>
