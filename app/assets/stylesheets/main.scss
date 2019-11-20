@@ -1,0 +1,39 @@
+body {
+  margin: 0 auto;
+  text-align: center;
+  background: image-url("instagram_image.jpg") no-repeat;
+  background-size: 100%;
+}
+
+header {
+  margin-bottom: 10rem; 
+}
+
+.navbar-nav {
+  position: relative;
+  left: 10rem; 
+}
+
+.navbar-nav li {
+  padding-right: 5rem;
+}
+
+.toppage_center {
+  border: none;
+}
+
+table {
+  margin: 0 auto;
+}
+
+.btn {
+  border-radius: 3rem;
+}
+
+.login_btn {
+  height: 10rem;
+  width: 30rem;
+  font-size: 4rem;
+  padding: 2rem;
+  margin-top: 1rem;
+}
