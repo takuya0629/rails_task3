@@ -11,11 +11,15 @@
 </p>
 
 <% if @user.image? %>
-<%= image_tag @user.image.url %>
+  <%= image_tag @user.image.url %>
 <% end %>
-<br><br>
+<br>
+<br>
 
-<%= link_to '設定変更', edit_user_path(@user), class: 'btn btn-success' %> |
-<%= link_to '投稿一覧へ', pictures_path, class: 'btn btn-warning' %> |
+<% if current_user.id == @user.id %>
+  <%= link_to '設定変更', edit_user_path(@user), class: 'btn btn-success' %> |
+<% end %>
+  <%= link_to '投稿一覧へ', pictures_path, class: 'btn btn-warning' %> 
 
 
+      

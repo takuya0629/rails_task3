@@ -19,7 +19,9 @@ class UsersController < ApplicationController
 
   # GET /users/1/edit
   def edit
-
+    if current_user.id != @user.id
+      redirect_to root_path, notice: 'あなたのアカウントではありません。'
+    end
   end
 
   # POST /users
