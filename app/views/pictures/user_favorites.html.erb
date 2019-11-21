@@ -1,9 +1,14 @@
 <h2><%= current_user.name %>さんのお気に入り投稿</h2>
 
-
+<br>
+<h1>--------------------------------</h1>
 <% @favorites.each do |favorite| %>
-<h3><%= favorite.user.name %></h3>
-<h3><%= favorite.title %></h3>
-<h3><%= favorite.content %></h3>
-<%= image_tag favorite.image.url %>
-<% end %>
+  <h3>投稿者：<%= favorite.user.name %></h3>
+    <h3>タイトル：<%= favorite.title %></h3>
+    <h3>一言：<%= favorite.content %></h3>
+
+    <% if favorite.image? %>
+      <%= image_tag favorite.image.url %>
+    <% end %>
+    <h1>--------------------------------</h1>
+  <% end %>
