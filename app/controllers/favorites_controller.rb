@@ -5,6 +5,11 @@ class FavoritesController < ApplicationController
     redirect_to pictures_url, notice: "#{favorite.picture.user.name}さんのブログをお気に入り登録しました"
   end
 
+  def show
+    @picture = picture.find(params[:id])
+    @favorites = favorite.where(picture_id: @picture.id).all
+  end
+
   def destroy
     favorite = current_user.favorites.find_by(id: params[:id]).destroy
     redirect_to pictures_url, notice: "#{favorite.picture.user.name}さんのブログをお気に入り解除しました"

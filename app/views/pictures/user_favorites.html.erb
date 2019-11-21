@@ -1,0 +1,9 @@
+<h2><%= current_user.name %>さんのお気に入り投稿</h2>
+
+
+<% @favorites.each do |favorite| %>
+<h3><%= favorite.user.name %></h3>
+<h3><%= favorite.title %></h3>
+<h3><%= favorite.content %></h3>
+<%= image_tag favorite.image.url %>
+<% end %>

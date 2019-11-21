@@ -73,6 +73,10 @@ class PicturesController < ApplicationController
     end
   end
 
+  def user_favorites
+    @favorites = current_user.favorite_pictures
+  end
+
   private
   def set_picture
     @picture = Picture.find(params[:id])
