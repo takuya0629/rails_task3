@@ -11,6 +11,6 @@ Rails.application.routes.draw do
       post :confirm
       get :user_favorites
     end
-
   end
+  mount LetterOpenerWeb::Engine, at: "/letter_opener" if Rails.env.development?
 end
