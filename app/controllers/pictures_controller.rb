@@ -19,6 +19,9 @@ class PicturesController < ApplicationController
 
   # GET /pictures/1/edit
   def edit
+    if current_user.id != @picture.user_id
+      redirect_to pictures_path, notice: 'あなたの投稿ではありません。'
+    end
   end
 
   # POST /pictures
