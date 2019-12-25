@@ -30,6 +30,12 @@ set :rbenv_type, :system
 # ただし挙動をしっかり確認したいのであれば :debug に設定する。
 set :log_level, :info
 
+# --prefer-offline -> 高速化
+# --production -> devDependencies にあるパッケージはインストールしなくなる
+# --no-progress -> progress bar の非表示
+set :yarn_flags, "--prefer-offline --production --no-progress"
+set :yarn_roles, :app
+
 namespace :deploy do
   desc 'Restart application'
   task :restart do
